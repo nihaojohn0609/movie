@@ -1,3 +1,4 @@
+/*
 package com.springboot.mycgv.restcontroller;
 
 import com.springboot.mycgv.dto.BoardDto;
@@ -48,3 +49,4 @@ public class MycgvRestController {
         return boardService.content(bid);
     }
 }
+*/
