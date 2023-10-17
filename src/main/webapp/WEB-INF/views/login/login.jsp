@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +40,12 @@
 	*/
 </script>
 
+	<style>
+		.failed {
+			color:red;
+		}
+	</style>
+
 </head>
 <body>
 	<!-- header -->
@@ -47,26 +55,21 @@
 	<div class="content">
 		<section class="login">
 			<h1 class="title">로그인</h1>
-			<form name="loginForm" action="login" method="post">
-				<ul>
-					<li>
+			<form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
+				<c:if test="${param.error != null}">
+					<i class="failed">등록되지 않은 사용자 혹은 잘못된 비밀번호입니다.</i>
+				</c:if>
+					<p>
 						<label>아이디</label>
-						<input type="text" name="id" id="id">
-					</li>
-					<li>
+						<input type="text" name="username" id="id">
+					</p>
+					<p>
 						<label>패스워드</label>
-						<input type="password" name="pass" id="pass">
-					</li>
-					<li>
-						<button type="button" class="btn_style" id="btnLogin" >로그인</button>
-						<button type="button" class="btn_style" id="btnLoginReset">다시쓰기</button>
-					</li>
-					<li>
-						<span><a href="#">아이디 찾기> </a></span>
-						<span><a href="#">비밀번호 찾기> </a></span>
-					</li>
-				</ul>
-			</form>
+						<input type="password" name="password" id="pass">
+					</p>
+						<input type="submit" value="Login" />
+
+			</form:form>
 		</section>
 	</div>
 	<!-- footer -->
