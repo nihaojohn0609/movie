@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
   
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,20 @@
 	<!-- header -->
 	<jsp:include page="header.jsp"></jsp:include>
 		
-	<!-- content -->	
+	<!-- content -->
+	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
+		<input type="submit" value="Logout">
+	</form:form>
+
+	<hr>
+
+	<p>
+			User: <sec:authentication property="principal.username" />
+			<br><br>
+			Role(s): <sec:authentication property="principal.authorities" />
+	</p>
+
+	<hr>
 	<div class="content">
 		<section class="section1">	
 			<div class="section1_d1">	
