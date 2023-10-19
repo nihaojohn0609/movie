@@ -1,12 +1,25 @@
 package com.example.Movie_Rank.mycgv.dto;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
-@Data
+import java.time.LocalDateTime;
+
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class BoardDto {
-    String page;
-    int rno, bhits;
-    String bid, btitle, bcontent, id, bdate, bfile, bsfile;
-    MultipartFile file1;    // 폼에서 넘어오는 파일객체
+    private Long id;
+    private String boardWriter;
+    private String boardPass;
+    private String boardTitle;
+    private String boardContents;
+    private int boardHits;
+    private LocalDateTime boardCreatedTime;
+    private LocalDateTime boardUpdatedTime;
+
+
+
 }
