@@ -37,7 +37,9 @@
 				<article><a href="admin_notice_list.do">🛕 공지사항 관리</a></article>
 				<article>🚗영화 관리</article>
 				<article><a href="admin_member_list.do">👩회원 관리</a></article>
+				<a href="${pageContext.request.contextPath}/">Back to home page</a>
 			</div>
+
 		</section>
 	</div>
 	
