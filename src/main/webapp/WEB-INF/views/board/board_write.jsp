@@ -19,19 +19,18 @@
 	<div class="content">
 		<section class="board">
 			<h1 class="title">게시판</h1>
-			<form name="writeForm" action="/board/write" method="post" enctype="multipart/form-data">
+			<form name="writeForm" action="/board/write" method="post">
 				<table>
 					<tr>
 						<th class="test">제목</th>
 						<td>
-							<input type="text" name="boardTitle" id="btitle"
-								placeholder="*제목은 반드시 입력해주세요" >
+							<input type="text" name="boardTitle" id="btitle" placeholder="*제목은 반드시 입력해주세요">
 						</td>
-					</tr>S
+					</tr>
 					<tr>
 						<th>내용</th>
 						<td>
-							<textarea rows="5" cols="30" name="boardContents"></textarea>
+							<textarea rows="10" cols="30" name="boardContents"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -40,12 +39,12 @@
 							<input type="text" name="boardWriter">
 						</td>
 					</tr>
-					<tr>
+					<%--<tr>
 						<th>파일업로드</th>
 						<td>
 							<input type="file" name="file1" >
 						</td>
-					</tr>
+					</tr>--%>
 					<tr>
 						<td colspan="2">
 							<button type="button" class="btn_style" id="btnBoardWrite">등록완료</button>

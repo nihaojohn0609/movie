@@ -21,15 +21,12 @@ public class BoardEntity extends BaseEntity {
     @Column(length = 500)
     private String boardContents;
     @Column
-    private String boardPass;
-    @Column
     private String boardTitle;
     @Column
     private int boardHits;
     public static BoardEntity toSaveEntity(BoardDto boardDto){
         BoardEntity boardEntity =  new BoardEntity();
         boardEntity.setBoardWriter(boardDto.getBoardWriter());
-        boardEntity.setBoardPass(boardDto.getBoardPass());
         boardEntity.setBoardTitle(boardDto.getBoardTitle());
         boardEntity.setBoardHits(0);
         return boardEntity;
