@@ -28,7 +28,7 @@ public class MovieSecurityConfig {
                                 .loginPage("/login")
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .permitAll())
-                .logout(logout -> logout.permitAll()).exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied"));
+                .logout(logout -> logout.permitAll()).exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied")).csrf(csrf -> csrf.disable());
         return http.build();
     }
 

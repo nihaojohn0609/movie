@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 public class BoardService {
     private final BoardRepository boardRepository;
     public void save(BoardDto boardDto){
+        System.out.println(boardDto);
         BoardEntity boardEntity = BoardEntity.toSaveEntity(boardDto);
         boardRepository.save(boardEntity);
     }
