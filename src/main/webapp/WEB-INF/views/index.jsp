@@ -20,10 +20,10 @@
 		}
 	
 	</script>
-</head>
-<body>
 	<!-- header -->
 	<jsp:include page="header.jsp"></jsp:include>
+</head>
+<body>
 		
 	<!-- content -->
 	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
@@ -70,10 +70,11 @@
 				<img src="http://localhost:9000/images/16258186526120.png">
 			</div>
 		</section>
+		<!-- footer -->
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 	
-	<!-- footer -->
-	<jsp:include page="footer.jsp"></jsp:include>
+
 			
 </body>
 </html>
