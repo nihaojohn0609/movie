@@ -22,6 +22,15 @@ import java.util.Collection;
         @Column(name = "enabled")
         private boolean enabled;
 
+        @Column(name = "first_name")
+        private String firstName;
+
+        @Column(name = "last_name")
+        private String lastName;
+
+        @Column(name = "email")
+        private String email;
+
         @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
         @JoinTable(name = "users_roles",
                 joinColumns = @JoinColumn(name = "user_id"),
@@ -85,6 +94,30 @@ import java.util.Collection;
             this.roles = roles;
         }
 
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
+
         @Override
         public String toString() {
             return "User{" +
@@ -92,6 +125,9 @@ import java.util.Collection;
                     ", userName='" + userName + '\'' +
                     ", password='" + password + '\'' +
                     ", enabled=" + enabled +
+                    ", firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", email='" + email + '\'' +
                     ", roles=" + roles +
                     '}';
         }

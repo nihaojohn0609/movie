@@ -5,4 +5,6 @@ import com.example.Movie_Rank.mycgv.entity.User;
 public interface UserRepository {
 
     User findByUserName(String userName);
+
+    void save(User theUser);
 }

@@ -8,6 +8,7 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -48,21 +49,24 @@ public class MovieSecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception {
 
         http.authorizeRequests(configurer ->
                         configurer
                                 .dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
-                                .requestMatchers(new AntPathRequestMatcher("/")).hasRole("EMPLOYEE")
+                                .requestMatchers(new AntPathRequestMatcher("/")).permitAll()
+                                .requestMatchers(new AntPathRequestMatcher("/employees/**")).hasRole("EMPLOYEE")
                                 .requestMatchers(new AntPathRequestMatcher("/leaders/**")).hasRole("MANAGER")
                                 .requestMatchers(new AntPathRequestMatcher("/admin/**")).hasRole("ADMIN")
+                                .requestMatchers(new AntPathRequestMatcher("/register/**")).permitAll()
                                 .anyRequest().authenticated())
                 .formLogin(form ->
                         form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/authenticateTheUser")
+                                .successHandler(customAuthenticationSuccessHandler)
                                 .permitAll())
-                .logout(logout -> logout.permitAll()).exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied")).csrf(csrf -> csrf.disable());
+                .logout(logout -> logout.permitAll().logoutSuccessUrl("/")).exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied")).csrf(csrf -> csrf.disable());
         return http.build();
     }
 

@@ -88,6 +88,13 @@ header {
 	height:100px;
 	position: relative;
 }
+
+#logout {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
 .header_menu > div > a {
 	position:absolute;
 	top:20px;
