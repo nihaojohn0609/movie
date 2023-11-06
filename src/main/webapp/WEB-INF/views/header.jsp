@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-  
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +20,6 @@
 				<c:when test="${sessionScope.svo == null}">
 					<ul>
 						<li><a href="${pageContext.request.contextPath}/login">로그인</a></li>
-						<li><a href="http://localhost:9000/join">회원가입</a></li>
 						<!-- <li><a href="http://localhost:9000/mypage/mypage.jsp" target="_parent">마이페이지</a></li> -->
 						<sec:authorize access="hasRole('MANAGER')">
 							<li><a href="${pageContext.request.contextPath}/leaders">VIP</a></li>
@@ -46,7 +46,7 @@
 						<li><a href="http://localhost:9000/board_list_json">게시판(JSON)</a></li>
 						<c:if test="${sessionScope.svo.id == 'admin'}">
 							<li><a href="http://localhost:9000/admin/index">ADMIN</a></li>
-						</c:if>					
+						</c:if>
 					</ul>
 				</c:otherwise>
 				</c:choose>
@@ -66,8 +66,13 @@
 						</ul>
 					</nav>				
 				</div>
+				<form:form action="${pageContext.request.contextPath}/logout" method="POST" id="logout">
+					<input type="submit" value="Logout">
+				</form:form>
 			</div>
 		</div>
+
+
 	</header>
 </body>
 </html>

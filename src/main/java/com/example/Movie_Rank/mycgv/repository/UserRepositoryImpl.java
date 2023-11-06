@@ -4,6 +4,7 @@ import com.example.Movie_Rank.mycgv.entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
@@ -28,5 +29,12 @@ public class UserRepositoryImpl implements UserRepository {
         }
 
         return theUser;
+    }
+
+    @Override
+    @Transactional
+    public void save(User theUser) {
+
+        entityManager.merge(theUser);
     }
 }
