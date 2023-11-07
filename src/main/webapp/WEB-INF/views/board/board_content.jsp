@@ -19,35 +19,35 @@
 			<table class="board_content">
 				<tr>
 					<th>제목</th>
-					<td>${board.btitle}</td>
+					<td>${board.boardTitle}</td>
 				</tr>
 				<tr>
 					<th>내용</th>
-					<td>${board.bcontent}<br><br><br>
-						<c:if test="${board.bsfile != null}">
+					<td>${board.boardContents}<br><br><br>
+						<%--<c:if test="${board.bsfile != null}">
 							<img src="http://localhost:9000/upload/${board.bsfile}">
-						</c:if>
+						</c:if>--%>
 					</td>
 				</tr>
 				<tr>
 					<th>조회수</th>
-					<td>${board.bhits}</td>
+					<td>${board.boardHits}</td>
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td>${board.id}</td>
+					<td>${board.boardWriter}</td>
 				</tr>
 				<tr>
 					<th>작성일자</th>
-					<td>${board.bdate}</td>
+					<td>${board.boardCreatedTime}</td>
 				</tr>
 				<tr>
 					<td colspan="2">
-						<a href="/board_update/${board.bid}/${page}">
+						<a href="/board_update/${board.id}">
 							<button type="button" class="btn_style">수정하기</button></a>
-						<a href="/board_delete/${board.bid}/${page}">
-							<button type="button" class="btn_style">삭제하기</button></a>
-						<a href="/board_list/${page}/">
+					<%--	<a href="/board_delete/${board.bid}/${page}">
+							<button type="button" class="btn_style">삭제하기</button></a>--%>
+						<a href="/board/list">
 							<button type="button" class="btn_style">리스트</button></a>
 						<a href="http://localhost:9000/">
 						<button type="button" class="btn_style">홈으로</button></a>
