@@ -8,35 +8,21 @@
 	<meta charset="UTF-8">
 	<title>MYCGV</title>
 	<link rel="stylesheet" href="http://localhost:9000/css/mycgv_jsp.css">
-	<script>
-		let login_result = "${login_result }";
-		let logout_result = "${logout_result }";
-		
-		if(login_result == 'ok'){
-			alert("로그인에 성공하셨습니다.");
-		}
-		if(logout_result == 'ok'){
-			alert("로그아웃 되었습니다.");
-		}
-	
-	</script>
-</head>
-<body>
+
 	<!-- header -->
 	<jsp:include page="header.jsp"></jsp:include>
+</head>
+<body>
 		
 	<!-- content -->
-	<form:form action="${pageContext.request.contextPath}/logout" method="POST">
-		<input type="submit" value="Logout">
-	</form:form>
 
 	<hr>
 
-	<p>
-			User: <sec:authentication property="principal.username" />
-			<br><br>
-			Role(s): <sec:authentication property="principal.authorities" />
-	</p>
+<%--	<p>--%>
+<%--			User: <sec:authentication property="principal.username" />--%>
+<%--			<br><br>--%>
+<%--			Role(s): <sec:authentication property="principal.authorities" />--%>
+<%--	</p>--%>
 
 	<hr>
 	<div class="content">
@@ -70,10 +56,11 @@
 				<img src="http://localhost:9000/images/16258186526120.png">
 			</div>
 		</section>
+		<!-- footer -->
+		<jsp:include page="footer.jsp"></jsp:include>
 	</div>
 	
-	<!-- footer -->
-	<jsp:include page="footer.jsp"></jsp:include>
+
 			
 </body>
 </html>

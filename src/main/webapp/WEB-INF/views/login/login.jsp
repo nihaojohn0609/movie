@@ -9,15 +9,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Movie</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-<script src="http://localhost:9000/js/jquery-3.6.4.min.js"></script>
-<script src="http://localhost:9000/js/mycgv_jsp_jquery.js"></script>
-<script>
-	let join_result = "${join_result}";
-	if(join_result == 'ok'){
-		alert("Login Success");
-	}
-
-</script>
 
 	<style>
 		.failed {
@@ -66,12 +57,12 @@
 
 					<!-- User name -->
 					<div style="margin-bottom: 25px;" class="input-group">
-						<input type="text" name="username" placeholder="아이디" class="form-control" />
+						<input type="text" name="username" placeholder="Id (*)" class="form-control" />
 					</div>
 
 					<!-- Password -->
 					<div style="margin-bottom: 25px;" class="input-group">
-						<input type="password" name="password" placeholder="패스워드" class="form-control" />
+						<input type="password" name="password" placeholder="Password (*)" class="form-control" />
 					</div>
 
 					<!-- Login/Submit Button -->
@@ -83,9 +74,13 @@
 
 					</form:form>
 
+                    <div>
+                        <a href="${pageContext.request.contextPath}/register/showRegistrationForm" class="btn btn-primary mt-3" role="button" aria-pressed="true">회원가입</a>
+                    </div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 	</div>
 	<!-- footer -->
