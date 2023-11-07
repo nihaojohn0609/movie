@@ -27,10 +27,9 @@
 						<li><a href="#">고객센터</a></li>
 						<li><a href="http://localhost:9000/notice_list/1/">공지사항</a></li>
 						<li><a href="http://localhost:9000/board/list">게시판</a></li>
-						<li><a href="http://localhost:9000/board_list_json">게시판(JSON)</a></li>
-						<sec:authorize access="hasRole('ADMIN')">
-							<li><a href="${pageContext.request.contextPath}/admin">ADMIN</a></li>
-						</sec:authorize>
+
+						<%--<li><a href="http://localhost:9000/board_list_json">게시판(JSON)</a></li>--%>
+						<li><a href="${pageContext.request.contextPath}/admin">ADMIN</a></li>
 					</ul>
 				</c:when>
 				<c:otherwise>
